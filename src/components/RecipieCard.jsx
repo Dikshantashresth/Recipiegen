@@ -26,7 +26,7 @@ const RecipieCard = ({ recipie }) => {
           {recipie.desc}
         </p>
       </div>
-<Link to={`/recipiedetail/${recipie._id}`}>
+<Link to={`recipiedetail/${recipie._id}`}>
       <button className="bg-emerald-500 hover:bg-emerald-600 transition mt-4 text-white p-2 rounded-md cursor-pointer">
         View Recipie
       </button></Link>
