@@ -9,7 +9,7 @@ const RecipieDetails = () => {
 
   const fetchbyid = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/recipie/${id}`, {
+      const response = await axios.get(`${import.meta.env.VITE_URL}/recipie/${id}`, {
         withCredentials: true,
       });
       if (response) {

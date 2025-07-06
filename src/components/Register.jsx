@@ -13,7 +13,7 @@ const Register = () => {
     const [error, setError] = useState('');
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const res = await axios.post('http://localhost:5000/register',{username,email,password},{withCredentials: true});
+        const res = await axios.post(`${import.meta.env.VITE_URL}/register`,{username,email,password},{withCredentials: true});
         if(res){
             console.log(res.data);
         }

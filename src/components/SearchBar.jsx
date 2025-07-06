@@ -9,7 +9,7 @@ const SearchBar = ({setRecipie}) => {
   const [Query,setQuery] = useState();
   
   const fetchQuery = async ()=>{
-    const result = await axios.get(`http://localhost:5000/search?title=${Query}`);
+    const result = await axios.get(`${import.meta.env.VITE_URL}/search?title=${Query}`);
     if(result){
       setRecipie(result.data);
     }

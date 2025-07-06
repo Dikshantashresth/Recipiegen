@@ -12,7 +12,7 @@ const Feed = () => {
   useEffect(() => {
     const fetchRecipie = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/recipies', { withCredentials: true });
+        const response = await axios.get(`${import.meta.env.VITE_URL}/recipies`, { withCredentials: true });
         if (response.status === 200 || response.status === 201) {
           setRecipies(response.data);
         }
