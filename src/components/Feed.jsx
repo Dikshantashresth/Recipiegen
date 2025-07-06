@@ -3,7 +3,7 @@ import RecipieCard from './RecipieCard'
 import { Stack } from '@mui/material'
 import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+
 import { useUsercontext } from '../context/userContext'
 import {motion} from 'framer-motion'
 import axios from '../utils/axios'
