@@ -6,7 +6,7 @@ import Register from './components/Register'
 import Dashboard from './components/Dashboard'
 import AddRecipie from './components/AddRecipie'
 import Settings from './components/Settings'
-import Logout from './components/Logout'
+import Logginout from './components/Logginout'
 import axios from 'axios'
 import Search from './components/Search'
 import Feed from './components/Feed'
@@ -30,7 +30,7 @@ const App = () => {
             <Route path="addrecipie" element={<AddRecipie />} />
             <Route path="recipiedetail/:id" element={<RecipieDetails/>}/>
           </Route>
-        <Route path='/logout' element={<Logout/>}/>
+        <Route path='/logout' element={<Logginout/>}/>
       </Routes>
     </UserContextProvider>
    </BrowserRouter>
