@@ -5,8 +5,9 @@ import axios from 'axios';
 import { color } from 'motion';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,6 +17,7 @@ const Register = () => {
         const res = await axios.post(`${import.meta.env.VITE_URL}/register`,{username,email,password},{withCredentials: true});
         if(res){
             console.log(res.data);
+            navigate('/login');
         }
     
     }
