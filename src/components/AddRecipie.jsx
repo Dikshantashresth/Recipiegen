@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Typography } from '@mui/material';
-import axios from 'axios';
+import axios from '../utils/axios';
 import { useNavigate } from 'react-router-dom';
 
 const AddRecipie = () => {
@@ -15,7 +15,7 @@ const AddRecipie = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        'http://localhost:5000/addrecipie',
+        '/addrecipie',
         { Title, Description, Ingredients, Procedure },
         { withCredentials: true }
       );
