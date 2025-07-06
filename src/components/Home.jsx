@@ -26,9 +26,9 @@ const Home = () => {
 
           <Link to="/login">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="outlined" color="inherit" className="w-32 font-bold text-white border-white">
+              <button variant="outlined" color="inherit" className="w-32 font-bold text-white border-white">
                 Login
-              </Button>
+              </button>
             </motion.div>
           </Link>
         </div>
