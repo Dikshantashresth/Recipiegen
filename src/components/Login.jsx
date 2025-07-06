@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../utils/axios'
 import { color } from 'motion';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
@@ -27,7 +27,7 @@ if (loading) return <div className="text-white text-center mt-10">Loading...</di
     const handleSubmit = async (e)=>{
         e.preventDefault();
         try {
-            const response = await axios.post(`${import.meta.env.VITE_URL}/login`, {
+            const response = await axios.post(`/login`, {
                 email,
                 password
             }, {

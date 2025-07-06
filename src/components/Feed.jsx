@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useUsercontext } from '../context/userContext'
 import {motion} from 'framer-motion'
+import axios from '../utils/axios'
 const Feed = () => {
   const [Recipies, setRecipies] = useState([]);
   const { username } = useUsercontext();
   useEffect(() => {
     const fetchRecipie = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_URL}/recipies`, { withCredentials: true });
+        const response = await axios.get(`/recipies`, { withCredentials: true });
         if (response.status === 200 || response.status === 201) {
           setRecipies(response.data);
         }

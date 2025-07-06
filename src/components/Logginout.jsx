@@ -1,13 +1,14 @@
 import React from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from '../utils/axios'
 const Logginout = () => {
    const navigate = useNavigate();
 
   useEffect(() => {
     const performLogout = async () => {
       try {
-        await axios.get(`${import.meta.env.VITE_URL}/logout`, { withCredentials: true });
+        await axios.get(`/logout`, { withCredentials: true });
         navigate('/login');
       } catch (err) {
         console.error('Logout failed:', err);
