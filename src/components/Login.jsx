@@ -10,47 +10,49 @@ import { useEffect } from 'react';
 
 
 const Login = () => {
-    
-    const {setUserId,setUsername,userId,loading} = useUsercontext();
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const { setUserId, setUsername, userId, loading } = useUsercontext();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
     useEffect(() => {
-  if (!loading && userId) {
-    navigate('/dashboard');
-  }
-}, [loading, userId]);
+        if (!loading && userId) {
+            navigate('/dashboard');
+        }
+    }, [loading, userId]);
 
-if (loading) return <div className="text-white text-center mt-10">Loading...</div>;
+    if (loading) return <div className="text-white text-center mt-10">Loading...</div>;
 
-    const handleSubmit = async (e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+        setError('');
+
         try {
             const response = await axios.post(`/login`, {
                 email,
-                password
-            }, {
-                withCredentials: true
+                password,
             });
-            if(response.data){
-                
+
+            if (response.data) {
                 setUsername(response.data.username);
-                setUserId(response.data.id || response.data._id); 
+                setUserId(response.data.id || response.data._id);
                 navigate('/dashboard');
             }
-            
-        
         } catch (error) {
-  if (error.response) {
-    setError(error.response.data.message);
-        } else {
-    alert('Network or server error');
-  }
-}
-    }
+            if (error.response) {
+                setError(error.response.data.message);
+            } else {
+                alert('Network or server error');
+            }
+        } finally {
+            setIsLoading(false); // Always turn off loader
+        }
+    };
 
-        return (
+
+    return (
         <div
             className='h-screen bg-zinc-900 overflow-hidden'>
             <motion.div initial={{ opacity: 0, y: 20 }}
@@ -61,7 +63,7 @@ if (loading) return <div className="text-white text-center mt-10">Loading...</di
                     <form className='text-white w-100 mx-auto bg-zinc-800 p-5 rounded-md' onSubmit={handleSubmit} >
                         {error && <Typography variant='body2' className='text-red-500 mb-3 text-center ' fontSize={16}>{error}</Typography>}
                         <Typography variant='h4' className=' text-white' sx={{ marginBottom: 3 }}>Login</Typography>
-                        
+
                         <input
                             type="email"
                             placeholder='email'
@@ -77,8 +79,13 @@ if (loading) return <div className="text-white text-center mt-10">Loading...</di
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                         />
-                        <Button variant="contained"  type="submit" className='mt-4 w-full h-15' >
-                            Login
+                        <Button
+                            variant="contained"
+                            type="submit"
+                            className="mt-4 w-full h-15"
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Logging in...' : 'Login'}
                         </Button>
                         <Typography variant='body2' className='text-white mt-3 text-center'>
                             Don't have an account? <Link to="/register" className='text-emerald-500'>Register</Link></Typography>
