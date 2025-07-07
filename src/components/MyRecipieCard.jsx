@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
-const RecipieCard = ({ recipie }) => {
+const MyRecipieCard = ({ recipie }) => {
   const MotionBox = motion(Box);
   return (
     <MotionBox
@@ -34,4 +34,4 @@ const RecipieCard = ({ recipie }) => {
   )
 }
 
-export default RecipieCard
+export default MyRecipieCard

@@ -50,9 +50,11 @@ const Feed = () => {
         <p className='text-3xl text-white font-bold mt-10'>Recipes</p>
 
 
-        <div className="flex flex-wrap  gap-8  mt-10 sm:justify-center md:justify-center lg:justify-start">
+        <div className="flex flex-wrap gap-6 justify-center mt-10 mb-5">
           {Recipies.map((recipie, index) => (
+            <div className="w-[300px] flex">
             <RecipieCard key={index} recipie={recipie} />
+            </div>
           ))}
         </div>
       </Stack>

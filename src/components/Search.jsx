@@ -18,9 +18,9 @@ const Search = () => {
           Results for 
           </Typography>
       </motion.div>
-           <div className='flex flex-wrap gap-10 sm:justify-center md:justify-start'>
+           <div className='flex flex-wrap gap-10 justify-center '>
         {Result.length > 0 ? (
-          Result.map((recipie, i) => <RecipieCard key={i} recipie={recipie} />)
+          Result.map((recipie, i) =>  <div className="w-[300px] flex"> <RecipieCard key={i} recipie={recipie} /></div>)
         ) : (
           <p className='text-white'>No results found.</p>
         )}
