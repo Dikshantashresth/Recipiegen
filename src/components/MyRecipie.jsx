@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../utils/axios'
 import MyRecipieCard from './MyRecipieCard'
+
 const MyRecipie = () => {
     const [yourRecipie, setRecipie] = useState([]);
     useEffect(()=>{
@@ -15,6 +16,9 @@ const MyRecipie = () => {
     },[])
   return (
     <div>
+        <h3 className='text-white font-bold mt-5 text-4xl   mb-4'>
+          Your Recipies 
+          </h3>
       <div className='flex flex-wrap gap-10 justify-center '>
         {yourRecipie.length > 0 ? (
           yourRecipie.map((recipie, i) =>  <div className="w-[300px] flex"> <MyRecipieCard key={i} recipie={recipie} /></div>)
