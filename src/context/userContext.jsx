@@ -1,5 +1,5 @@
 // context/userContext.js
-import axios from "axios";
+import axios from "../utils/axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const userContext = createContext();
@@ -14,7 +14,7 @@ export const UserContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/profile", {
+        const response = await axios.get("/profile", {
           withCredentials: true,
         });
         const data = response.data;

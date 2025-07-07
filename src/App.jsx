@@ -13,6 +13,7 @@ import Feed from './components/Feed'
 import RecipieCard from './components/RecipieCard'
 import RecipieDetails from './components/RecipieDetails'
 import Home from './components/Home'
+import MyRecipie from './components/MyRecipie'
 const App = () => {
   axios.defaults.withCredentials = true;
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route index element={<Feed />} />
             <Route path="search" element={<Search />} />
             <Route path="addrecipie" element={<AddRecipie />} />
+            <Route path="myrecipie"  element= {<MyRecipie/>}/>
             <Route path="recipiedetail/:id" element={<RecipieDetails/>}/>
           </Route>
         <Route path='/logout' element={<Logginout/>}/>
