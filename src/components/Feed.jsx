@@ -51,11 +51,11 @@ const Feed = () => {
 
 
         <div className="flex flex-wrap gap-6 justify-center mt-10 mb-5">
-          {Recipies.map((recipie, index) => (
+          {Recipies.length>0? Recipies.map((recipie, index) => (
             <div className="w-[300px] flex">
             <RecipieCard key={index} recipie={recipie} />
             </div>
-          ))}
+          )): (<p className='text-white'>No results found.</p>)}
         </div>
       </Stack>
     </motion.div>

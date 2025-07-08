@@ -4,8 +4,10 @@ import { Typography } from '@mui/material'
 import RecipieCard from './RecipieCard'
 import { useState } from 'react'
 import {motion}  from 'framer-motion'
+import { useEffect } from 'react'
 const Search = () => {
   const [Result,setResult] = useState([]);
+  
   
   return (
     <div>

@@ -1,7 +1,7 @@
 import React, { use } from 'react'
 import { useState } from 'react'
 import { useUsercontext } from '../context/userContext';
-import axios from 'axios';
+import axios from '../utils/axios';
 import {motion} from 'framer-motion';
 
 const SearchBar = ({setRecipie}) => {
@@ -9,9 +9,10 @@ const SearchBar = ({setRecipie}) => {
   const [Query,setQuery] = useState();
   
   const fetchQuery = async ()=>{
-    const result = await axios.get(`${import.meta.env.VITE_URL}/search?title=${Query}`);
+    const result = await axios.get(`/search?title=${Query}`);
     if(result){
       setRecipie(result.data);
+      
     }
   }
   const handleClick = async()=>{
