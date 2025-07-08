@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../utils/axios';
 import { color } from 'motion';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -14,9 +14,9 @@ const Register = () => {
     const [error, setError] = useState('');
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const res = await axios.post(`${import.meta.env.VITE_URL}/register`,{username,email,password},{withCredentials: true});
+        const res = await axios.post(`/register`,{username,email,password},{withCredentials: true});
         if(res){
-            console.log(res.data);
+            
             navigate('/login');
         }
     

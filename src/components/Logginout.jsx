@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react'
 
 import { useNavigate } from 'react-router-dom';
 import axios from '../utils/axios'
-import { useState } from 'react';
+
 const Logginout = () => {
    const navigate = useNavigate();
-
+  const [state,setState] = useState(false);
   useEffect(() => {
-    const [state,setState] = useState(false);
+    
     const performLogout = async () => {
       try {
         await axios.get(`/logout`, { withCredentials: true });
