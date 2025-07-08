@@ -17,8 +17,8 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     useEffect(() => {
-        if (!loading && userId) {
-            navigate('/dashboard');
+        if (userId) {
+            navigate('/dashboard',{replace:true});
         }
     }, [loading, userId]);
 

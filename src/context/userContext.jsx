@@ -8,32 +8,32 @@ export const useUsercontext = () => useContext(userContext);
 export const UserContextProvider = ({ children }) => {
   const [username, setUsername] = useState("");
   const [userId, setUserId] = useState("");
-  const [loading, setLoading] = useState(true);
+  
   const [search,setSearch] = useState();
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const response = await axios.get("/profile", {
-          withCredentials: true,
-        });
-        const data = response.data;
+  const fetchProfile = async () => {
+   
 
-        setUsername(data.username);
-        setUserId(data.id || data._id); // double check backend returns "id"
-      } catch (err) {
-        console.log("No user logged in");
-      } finally {
-        setLoading(false);
-      }
-    };
+    try {
+      const response = await axios.get("/profile", { withCredentials: true });
+      const data = response.data;
 
-    fetchProfile();
-  }, []);
+      setUsername(data.username);
+      setUserId(data.id || data._id);
+    } catch (err) {
+      console.log("No user logged in");
+    } finally {
+    
+    }
+  };
+
+  fetchProfile();
+}, []);
 
   return (
     <userContext.Provider
-      value={{ username, setUsername, userId, setUserId, loading, setSearch }}
+      value={{ username, setUsername, userId, setUserId, setSearch }}
     >
       {children}
     </userContext.Provider>
