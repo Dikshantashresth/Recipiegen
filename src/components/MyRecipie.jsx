@@ -18,8 +18,8 @@ const MyRecipie = () => {
      const deletefromdatabase = async ({id})=>{
             await axios.delete(`/delete/${id}`,{withCredentials:true})
         }
-        const handleDelete = ()=>{
-          deletefromdatabase();
+        const handleDelete = (rec)=>{
+          deletefromdatabase(rec);
         }
   return (
     <div>
@@ -28,7 +28,7 @@ const MyRecipie = () => {
           </h3>
       <div className='flex flex-wrap gap-10 justify-center '>
         {yourRecipie.length > 0 ? (
-          yourRecipie.map((recipie, i) =>  <div className="w-[300px] flex"> <MyRecipieCard key={i} recipie={recipie} handler={handler} /></div>)
+          yourRecipie.map((recipie, i) =>  <div className="w-[300px] flex"> <MyRecipieCard key={i} recipie={recipie} handler={handleDelete} /></div>)
         ) : (
           <p className='text-white'>No results found.</p>
         )}
