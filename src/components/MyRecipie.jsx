@@ -14,9 +14,10 @@ const MyRecipie = () => {
             }
         }
         fetch();
-    },[]);
-     const deletefromdatabase = async ({id})=>{
-            await axios.delete(`/delete/${id}`,{withCredentials:true})
+    },[yourRecipie]);
+     const deletefromdatabase = async (rec)=>{
+            await axios.delete(`/delete/${rec._id}`,{withCredentials:true});
+            setRecipie(prev=>prev.filter(r=>r._id !== rec._id));
         }
         const handleDelete = (rec)=>{
           deletefromdatabase(rec);
