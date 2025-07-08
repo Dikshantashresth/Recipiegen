@@ -5,12 +5,10 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
 import AddRecipie from './components/AddRecipie'
-import Settings from './components/Settings'
 import Logginout from './components/Logginout'
 import axios from 'axios'
 import Search from './components/Search'
 import Feed from './components/Feed'
-import RecipieCard from './components/RecipieCard'
 import RecipieDetails from './components/RecipieDetails'
 import Home from './components/Home'
 import MyRecipie from './components/MyRecipie'
@@ -24,8 +22,7 @@ const App = () => {
         <Route  path='/login' element={<Login />} />
         <Route path='/register' element={<Register/>}/>
         <Route path="/dashboard" element={<Dashboard />}>
-           
-            <Route path="settings" element={<Settings />} />
+    
             <Route index element={<Feed />} />
             <Route path="search" element={<Search />} />
             <Route path="addrecipie" element={<AddRecipie />} />

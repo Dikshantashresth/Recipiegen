@@ -12,7 +12,7 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-white text-5xl font-bold mb-6">Welcome to RecipeHub 🍜</h1>
+        <h1 className="text-white text-5xl font-bold mb-6">Welcome to RecipeGen</h1>
         <p className="text-gray-300 text-lg mb-10">Your place to share and discover delicious recipes.</p>
 
         <div className="flex justify-center gap-6">
