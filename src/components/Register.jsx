@@ -12,8 +12,9 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [IsLoading, setIsLoading] = useState(false);
+  const [IsLoading, setIsLoading] = useState('');
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     try {
       const res = await axios.post(
@@ -52,6 +53,7 @@ const Register = () => {
             className="text-white w-100 mx-auto bg-zinc-800 p-5 rounded-md"
             onSubmit={handleSubmit}
           >
+            {error && <Typography variant='body2' className='text-red-500 mb-3 text-center ' fontSize={16}>{error}</Typography>}
             <Typography
               variant="h4"
               className=" text-white"
